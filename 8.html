@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重庆旅游攻略 - 2025年五一亲子游</title>
+    <style>
+        :root {
+            --primary-color: #74b9ff;
+            --secondary-color: #a29bfe;
+            --accent-color: #00b894;
+            --light-bg: #e8f8f5;
+            --dark-bg: #6c5ce7;
+            --text-color: #555;
+            --light-text: #888;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+            
+            /* 标题颜色变量 */
+            --title-color-1: #7e57c2; /* 紫色 */
+            --title-color-2: #26a69a; /* 青绿色 */
+            --title-color-3: #ec407a; /* 粉红色 */
+            --title-color-4: #5c6bc0; /* 靛蓝色 */
+            --title-color-5: #26c6da; /* 青色 */
+            
+            /* 新增配色方案 - 小清新色调 */
+            --food-color: #ff9ff3;
+            --food-light: #ffeeff;
+            --trans-color: #55efc4;
+            --trans-light: #e6fffb;
+            --kid-color: #81ecec;
+            --kid-light: #e6ffff;
+            --tip-color: #74b9ff;
+            --tip-light: #e6f7ff;
+            --time-color: #a29bfe;
+            --time-light: #f3f0ff;
+        }
+        
+        /* 彩色标题样式 */
+        .section-title h2 {
+            background: linear-gradient(135deg, var(--title-color-1), var(--title-color-4));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        /* 不同类型的内容标题使用不同的颜色 */
+        .transportation .section-title h2 {
+            background: linear-gradient(135deg, var(--title-color-2), var(--trans-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .accommodation .section-title h2 {
+            background: linear-gradient(135deg, var(--title-color-3), #ff7675);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .kid-travel .section-title h2 {
+            background: linear-gradient(135deg, var(--kid-color), var(--title-color-5));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* 三级标题也使用彩色 */
+        h3 {
+            color: var(--title-color-4);
+            font-weight: bold;
+        }
+        
+        /* 使小标题也有色彩 */
+        h4 {
+            color: var(--title-color-2);
+            font-weight: bold;
+        }
+        
+        /* 添加更多小清新元素 */
+        .section-title {
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, var(--secondary-color), transparent);
+        }
+        
+        .day-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .day-container:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 50%, rgba(var(--secondary-color), 0.1) 50%);
+            border-radius: 0 0 0 60px;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        
+        /* 更美观的按钮样式 */
+        .collapsible {
+            background-color: var(--time-light);
+            color: var(--time-color);
+            border-left: 4px solid var(--time-color);
+            cursor: pointer;
+            padding: 10px 15px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            border-radius: var(--border-radius);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .collapsible:after {
+            content: '\002B';
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .collapsible.active:after {
+            content: "\2212";
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background-color: white;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            margin-bottom: 10px;
+        }
+        
+        /* 确保折叠内容在展开时完整显示 */
+        .collapsible.active + .collapsible-content {
+            overflow: visible;
+            max-height: 3000px !important;
+        }
+        
+        .collapsible-inner {
+            padding: 15px;
+        }
+        
+        /* 更好看的地址标签 */
+        .address {
+            border-radius: 20px;
+            padding: 8px 15px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin: 8px 0;
+        }
+        
+        .address:hover {
+            background-color: var(--light-bg);
+        }
+        
+        /* 自定义回到顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark-bg));
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: var(--border-radius);
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 15px;
+            background: white;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark-bg));
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
+        
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .overview {
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .overview h2 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .transportation, .accommodation, .kid-travel, .day-container {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 25px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .section-title .emoji {
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .section-title h2 {
+            color: var(--accent-color);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        h4 {
+            color: var(--accent-color);
+            margin: 15px 0 10px;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        strong {
+            color: var(--accent-color);
+        }
+        
+        .alert {
+            background-color: #fff8e6;
+            border-left: 4px solid #ffd700;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        
+        .tip {
+            background-color: #e6f7ff;
+            border-left: 4px solid var(--tip-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .transport-info, .food-recommendation, .kid-friendly {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .price-info, .time-info {
+            display: inline-block;
+            margin-right: 15px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            background-color: #f0f0f0;
+        }
+        
+        .price-info {
+            color: #ff7675;
+            background-color: #fff0f0;
+        }
+        
+        .time-info {
+            color: #00b894;
+            background-color: #e6fff5;
+        }
+        
+        .note {
+            font-style: italic;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        /* 折叠面板样式 */
+        /* 已移除重复定义，使用上方的样式 */
+        
+        /* 不同类型的面板样式 */
+        .food-panel .collapsible {
+            background-color: var(--food-light);
+            color: var(--food-color);
+            border-left: 4px solid var(--food-color);
+        }
+        
+        .transport-panel .collapsible {
+            background-color: var(--trans-light);
+            color: var(--trans-color);
+            border-left: 4px solid var(--trans-color);
+        }
+        
+        .kid-panel .collapsible {
+            background-color: var(--kid-light);
+            color: var(--kid-color);
+            border-left: 4px solid var(--kid-color);
+        }
+        
+        .tip-panel .collapsible {
+            background-color: var(--tip-light);
+            color: var(--tip-color);
+            border-left: 4px solid var(--tip-color);
+        }
+        
+        .time-panel .collapsible {
+            background-color: var(--time-light);
+            color: var(--time-color);
+            border-left: 4px solid var(--time-color);
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            body {
+                background-color: #f9f9f9;
+                font-size: 15px;
+            }
+            
+            .container {
+                padding: 0;
+                box-shadow: none;
+                background-color: white;
+            }
+            
+            header {
+                margin: 0 0 15px 0;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                /* 修改为与电脑端一致的渐变背景 */
+                background: linear-gradient(135deg, #a29bfe, #6c5ce7) !important;
+                padding: 25px 15px;
+            }
+            
+            /* 确保彩色标题在手机端也能正确显示 */
+            .section-title h2 {
+                background: linear-gradient(135deg, var(--title-color-1), var(--title-color-4));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
+                font-weight: bold;
+            }
+            
+            /* 手机端标题颜色 */
+            h3 {
+                color: var(--title-color-4) !important;
+                font-weight: bold;
+            }
+            
+            h4 {
+                color: var(--title-color-2) !important;
+                font-weight: bold;
+            }
+            
+            /* 确保手机端图标颜色 */
+            .food-icon {
+                background-color: var(--food-color) !important;
+            }
+            
+            .trans-icon {
+                background-color: var(--trans-color) !important;
+            }
+            
+            .kid-icon {
+                background-color: var(--kid-color) !important;
+            }
+            
+            .tip-icon {
+                background-color: var(--tip-color) !important;
+            }
+            
+            .time-icon {
+                background-color: var(--time-color) !important;
+            }
+            
+            /* 确保手机端面板正确显示 */
+            .collapsible-content {
+                background-color: white;
+            }
+            
+            .day-container, .accommodation, .transportation, .kid-travel, .overview {
+                margin: 0 10px 15px 10px;
+                border-radius: var(--border-radius);
+                padding: 15px;
+                background-color: white; /* 确保手机端背景为白色 */
+            }
+            
+            h3 {
+                font-size: 18px;
+                margin: 15px 0 10px;
+            }
+            
+            .collapsible {
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+            
+            .collapsible:after {
+                font-size: 18px;
+            }
+            
+            /* 增强视觉体验 */
+            .day-container {
+                background-color: white;
+                position: relative;
+                overflow: hidden;
+                border-top: 5px solid var(--primary-color);
+            }
+            
+            .section-title {
+                background-color: transparent;
+                margin-bottom: 15px;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .section-title h2 {
+                font-size: 18px;
+                position: relative;
+            }
+            
+            /* 确保手机端颜色与桌面端保持一致 */
+            .food-panel .collapsible {
+                background-color: var(--food-light);
+                color: var(--food-color);
+                border-left: 4px solid var(--food-color);
+            }
+            
+            .transport-panel .collapsible {
+                background-color: var(--trans-light);
+                color: var(--trans-color);
+                border-left: 4px solid var(--trans-color);
+            }
+            
+            .kid-panel .collapsible {
+                background-color: var(--kid-light);
+                color: var(--kid-color);
+                border-left: 4px solid var(--kid-color);
+            }
+            
+            .tip-panel .collapsible {
+                background-color: var(--tip-light);
+                color: var(--tip-color);
+                border-left: 4px solid var(--tip-color);
+            }
+            
+            .time-panel .collapsible {
+                background-color: var(--time-light);
+                color: var(--time-color);
+                border-left: 4px solid var(--time-color);
+            }
+            
+            .transportation, .accommodation, .kid-travel, .day-container, .overview {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .section-title .emoji {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            h4 {
+                font-size: 1.1rem;
+            }
+            
+            .price-info, .time-info {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            .tip, .alert {
+                padding: 12px;
+            }
+            
+            /* 确保颜色在移动端保持一致 */
+            .address {
+                padding: 5px 10px;
+                background-color: #e6f7ff;
+                border-radius: 6px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: left;
+            }
+            
+            /* 更大的点击区域 */
+            li {
+                padding: 5px 0;
+            }
+            
+            /* 确保样式在移动端正确显示 */
+            .transport-info, .food-recommendation, .kid-friendly {
+                border-left: 3px solid var(--accent-color);
+                padding-left: 10px;
+                margin: 8px 0;
+            }
+        }
+
+        /* 确保图标样式在所有设备上一致 */
+        .food-icon, .trans-icon, .kid-icon, .tip-icon, .time-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .food-icon {
+            background-color: var(--food-color);
+        }
+        
+        .trans-icon {
+            background-color: var(--trans-color);
+        }
+        
+        .kid-icon {
+            background-color: var(--kid-color);
+        }
+        
+        .tip-icon {
+            background-color: var(--tip-color);
+        }
+        
+        .time-icon {
+            background-color: var(--time-color);
+        }
+        
+        /* 添加流畅的动画效果 */
+        .day-container, .accommodation, .transportation, .kid-travel, .overview {
+            transition: all 0.3s ease;
+        }
+        
+        .day-container:hover, .accommodation:hover, .transportation:hover, .kid-travel:hover, .overview:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* 添加自适应卡片布局 */
+        @media (min-width: 768px) {
+            .card-container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        
+        /* 强化手机端视觉效果 */
+        @media (max-width: 768px) {
+            body {
+                background-color: #f8f9fa;
+            }
+            
+            header {
+                margin: -10px -10px 15px -10px;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                background: linear-gradient(135deg, #ff4d4f, #722ed1);
+            }
+            
+            .section-title {
+                position: sticky;
+                top: 0;
+                background-color: white;
+                z-index: 10;
+                padding: 10px 0;
+            }
+            
+            /* 增强按钮点击效果 */
+            .address {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .address:after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+                background-repeat: no-repeat;
+                background-position: 50%;
+                transform: scale(10, 10);
+                opacity: 0;
+                transition: transform .5s, opacity 1s;
+            }
+            
+            .address:active:after {
+                transform: scale(0, 0);
+                opacity: .3;
+                transition: 0s;
+            }
+            
+            /* 添加悬浮标签 */
+            .floating-label {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: var(--primary-color);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 30px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                z-index: 100;
+                font-weight: bold;
+            }
+        }
+        
+        /* 折叠面板点击提示 */
+        .collapsible .click-hint {
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-left: 10px;
+            opacity: 0.7;
+        }
+        
+        /* 活跃状态的折叠面板 */
+        .collapsible.active {
+            background-color: var(--time-light);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .collapsible.active .click-hint {
+            display: none;
+        }
+        
+        /* 添加折叠内容的彩色样式 */
+        .collapsible-content {
+            background-color: white;
+        }
+        
+        .collapsible-inner {
+            padding: 15px;
+            background-color: #f9f7ff;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            color: #666;
+        }
+        
+        /* 不同类型面板内容的不同颜色 */
+        .food-panel .collapsible-inner {
+            background-color: var(--food-light);
+            border-left: 4px solid var(--food-color);
+        }
+        
+        .transport-panel .collapsible-inner {
+            background-color: var(--trans-light);
+            border-left: 4px solid var(--trans-color);
+        }
+        
+        .kid-panel .collapsible-inner {
+            background-color: var(--kid-light);
+            border-left: 4px solid var(--kid-color);
+        }
+        
+        .tip-panel .collapsible-inner {
+            background-color: var(--tip-light);
+            border-left: 4px solid var(--tip-color);
+        }
+        
+        .time-panel .collapsible-inner {
+            background-color: var(--time-light);
+            border-left: 4px solid var(--time-color);
+        }
+        
+        /* 为折叠内容的列表项添加彩色 */
+        .collapsible-inner li {
+            color: #555;
+            margin-bottom: 8px;
+        }
+        
+        .collapsible-inner li strong {
+            color: #5c6bc0;
+        }
+        
+        .food-panel .collapsible-inner li strong {
+            color: var(--food-color);
+        }
+        
+        .transport-panel .collapsible-inner li strong {
+            color: var(--trans-color);
+        }
+        
+        .kid-panel .collapsible-inner li strong {
+            color: var(--kid-color);
+        }
+        
+        .tip-panel .collapsible-inner li strong {
+            color: var(--tip-color);
+        }
+        
+        .time-panel .collapsible-inner li strong {
+            color: var(--time-color);
+        }
+        
+        /* 移动端确保样式一致 */
+        @media (max-width: 768px) {
+            .collapsible-inner {
+                padding: 12px;
+                background-color: #f9f7ff !important;
+            }
+            
+            .food-panel .collapsible-inner {
+                background-color: var(--food-light) !important;
+            }
+            
+            .transport-panel .collapsible-inner {
+                background-color: var(--trans-light) !important;
+            }
+            
+            .kid-panel .collapsible-inner {
+                background-color: var(--kid-light) !important;
+            }
+            
+            .tip-panel .collapsible-inner {
+                background-color: var(--tip-light) !important;
+            }
+            
+            .time-panel .collapsible-inner {
+                background-color: var(--time-light) !important;
+            }
+        }
+        
+        /* 添加样式，确保button内的h3标签正确显示 */
+        button.collapsible h3 {
+            margin: 0;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--time-color);
+        }
+        
+        @media (max-width: 768px) {
+            button.collapsible h3 {
+                font-size: 16px;
+            }
+        }
+        
+        /* 修正嵌套折叠面板的样式 */
+        .collapsible-content .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .collapsible-content .collapsible.active + .collapsible-content {
+            max-height: 2000px !important;
+            overflow: visible;
+        }
+        
+        /* 确保所有折叠面板能正常展开 */
+        .collapsible-inner {
+            padding: 15px;
+            background-color: #f9f7ff;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            color: #666;
+            overflow: visible;
+        }
+        
+        /* 特别针对交通方式折叠面板 */
+        .transport-info .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        
+        .transport-info .collapsible.active + .collapsible-content {
+            max-height: 1000px !important;
+            overflow: visible;
+        }
+        
+        /* 确保十八梯交通方式的折叠面板能够完全展开 */
+        /* 使用更通用的选择器 */
+        .collapsible-inner ul {
+            max-height: none;
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>重庆旅游攻略</h1>
+            <p>2025年五一亲子游 · 出行指南</p>
+        </header>
+
+        <div class="overview">
+            <h2>行程概览</h2>
+            <ul>
+                <li><strong>时间:</strong> 2025年5月1日-5月5日（五一假期）</li>
+                <li><strong>目的地:</strong> 重庆市区及周边</li>
+                <li><strong>行程天数:</strong> 5天4晚</li>
+                <li><strong>出行人员:</strong> （两位女士，两个孩子 - 4岁和14岁）</li>
+                <li><strong>交通方式:</strong> 高铁往返 + 当地公共交通</li>
+                <li><strong>住宿:</strong> 民宿/酒店（市中心区域）</li>
+            </ul>
+
+            <div class="alert">
+                <p><strong>五一出行提醒:</strong> 2025年五一期间重庆景点可能人流量大，建议提前预订酒店和热门景点门票，错峰出行。</p>
+            </div>
+        </div>
+
+        <div class="transportation">
+            <div class="section-title">
+                <span class="emoji">🚄</span>
+                <h2>交通信息</h2>
+            </div>
+            
+            <div class="transport-panel">
+                <button class="collapsible"><span class="trans-icon">🚆</span>高铁往返信息</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <ul>
+                <li><strong>去程:</strong> 西安 → 重庆（5月1日）
+                    <ul>
+                                    <li><strong>高铁:</strong> 西安北 → 重庆西，G223次，16:23出发，22:05抵达，约5小时42分钟车程。</li>
+                        <li><strong>抵达安排:</strong> 考虑到晚上抵达，第一天不安排景点游览，仅入住休息，调整状态。</li>
+                    </ul>
+                </li>
+                <li><strong>返程:</strong> 重庆 → 西安（5月5日）
+                    <ul>
+                                    <li><strong>高铁:</strong> 重庆西 → 西安北，12:58出发，预计18:30抵达，约6小时32分车程</li>
+                        <li><strong>温馨提示:</strong> 建议提前至少80分钟到达车站，考虑到五一返程高峰，出租车和网约车可能较难叫到，地铁是前往车站较可靠的选择。</li>
+                    </ul>
+                </li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="transport-panel">
+                <button class="collapsible"><span class="trans-icon">🚇</span>重庆市内交通</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>轨道交通:</strong> 重庆轨道交通网络发达，覆盖主要景点
+                                <ul>
+                                    <li>1号线: 连接重庆西站、沙坪坝、解放碑等区域</li>
+                                    <li>2号线: 经过李子坝站（轻轨穿楼）</li>
+                                    <li>3号线: 连接观音桥、南坪等区域</li>
+                                    <li>单程票价: 2-8元不等，可使用重庆交通卡或手机扫码</li>
+                                </ul>
+                            </li>
+                            <li><strong>出租车/网约车:</strong>
+                                <ul>
+                                    <li>起步价: 约10元（3公里内）</li>
+                                    <li>五一期间可能较难叫到车，建议提前预约</li>
+                                </ul>
+                            </li>
+                            <li><strong>公交车:</strong>
+                                <ul>
+                                    <li>覆盖面广，单程票价1-3元</li>
+                                    <li>部分景点间可选择公交前往，但需考虑山城地形可能带来的等待时间</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accommodation">
+            <div class="section-title">
+                <span class="emoji">🏠</span>
+                <h2>住宿推荐</h2>
+            </div>
+            
+            <div class="tip-panel">
+                <button class="collapsible"><span class="tip-icon">🏙️</span>推荐住宿区域</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <ul>
+                <li><strong>解放碑/洪崖洞附近</strong>：市中心位置，交通便利，餐饮购物丰富，夜景优美，适合亲子游</li>
+                <li><strong>观音桥商圈</strong>：北部商业中心，交通便捷，距离景点相对较远但生活配套完善</li>
+                <li><strong>南滨路/南坪</strong>：可欣赏对岸夜景，较为安静，房价相对便宜</li>
+                            <li><strong>沙坪坝区域</strong>：靠近重庆西站，交通便捷，适合需要早出晚归的游客</li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-panel">
+                <button class="collapsible"><span class="tip-icon">🏡</span>民宿推荐（主选）</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <div class="tip">
+                            <p><strong>注意：</strong>2025年五一期间价格可能会有浮动，建议提前预订。</p>
+            </div>
+            
+            <ul>
+                <li>
+                    <strong>解放碑/洪崖洞区域民宿</strong>
+                    <ul>
+                        <li>
+                            <strong>重庆印象洪崖洞观景民宿</strong>
+                            <div class="address" data-lon="106.580446" data-lat="29.558081">📍 地址: 渝中区嘉陵江滨江路88号</div>
+                            <p>直面洪崖洞，270°江景视野，带厨房，步行可达周边景点</p>
+                            <p><span class="price-info">价格: 498-698元/晚</span></p>
+                            <p>优点：极佳的观景位置，干净整洁，步行5分钟到达洪崖洞夜景区，民宿主人提供详细的周边游览建议</p>
+                        </li>
+                        <li>
+                            <strong>解放碑星空投影亲子房</strong>
+                            <div class="address" data-lon="106.576839" data-lat="29.555878">📍 地址: 渝中区民权路28号英利国际金融中心附近</div>
+                            <p>临近解放碑商圈，房内有儿童娱乐设施和星空投影，适合亲子家庭</p>
+                            <p><span class="price-info">价格: 428-568元/晚</span></p>
+                            <p>优点：为孩子准备了很多玩具和绘本，可步行至各大商场，交通便利</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>观音桥区域民宿</strong>
+                    <ul>
+                        <li>
+                            <strong>阳光100复古江景民宿</strong>
+                            <div class="address" data-lon="106.532303" data-lat="29.578753">📍 地址: 江北区观音桥步行街附近</div>
+                            <p>观音桥商圈中心，紧邻轻轨站，超大落地窗，可眺望江景</p>
+                            <p><span class="price-info">价格: 368-498元/晚</span></p>
+                            <p>优点：地理位置优越，周边美食众多，空间宽敞，适合家庭入住</p>
+                        </li>
+                    </ul>
+                </li>
+                            <li>
+                                <strong>沙坪坝区域民宿</strong>
+                                <ul>
+                                    <li>
+                                        <strong>沙坪坝轻轨站附近亲子民宿</strong>
+                                        <div class="address" data-lon="106.456924" data-lat="29.541512">📍 地址: 沙坪坝区沙坪坝正街附近</div>
+                                        <p>临近重庆西站和轻轨站，交通便利，装修精美，适合家庭入住</p>
+                                        <p><span class="price-info">价格: 328-458元/晚</span></p>
+                                        <p>优点：位置便利，靠近重庆西站，适合返程出行，周边餐饮和购物选择丰富</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>南滨路区域民宿</strong>
+                    <ul>
+                        <li>
+                            <strong>南滨路180°全江景亲子民宿</strong>
+                            <div class="address" data-lon="106.581701" data-lat="29.529001">📍 地址: 南岸区南滨路南滨特区8号</div>
+                            <p>面朝长江和渝中半岛，视野极佳，二居室带亲子房，近轻轨站</p>
+                            <p><span class="price-info">价格: 428-598元/晚</span></p>
+                            <p>优点：观景视角极佳，房间宽敞明亮，适合4人家庭，周边环境安静</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-panel">
+                <button class="collapsible"><span class="tip-icon">🏨</span>酒店推荐（备选）</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <ul>
+                <li>
+                    <strong>解放碑/洪崖洞区域</strong>
+                    <ul>
+                        <li>
+                            <strong>重庆丽晶酒店</strong>
+                            <div class="address" data-lon="106.577941" data-lat="29.557102">📍 地址: 渝中区五一路99号</div>
+                            <p>距离洪崖洞约500米，设施齐全，有亲子房型</p>
+                            <p><span class="price-info">价格: 688-988元/晚</span></p>
+                        </li>
+                        <li>
+                            <strong>重庆希尔顿酒店</strong>
+                            <div class="address" data-lon="106.575089" data-lat="29.55193">📍 地址: 渝中区民权路139号</div>
+                            <p>五星级酒店，位于解放碑商圈中心，服务一流</p>
+                            <p><span class="price-info">价格: 980-1580元/晚</span></p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>观音桥区域</strong>
+                    <ul>
+                        <li>
+                            <strong>重庆融汇丽笙酒店</strong>
+                            <div class="address" data-lon="106.539482" data-lat="29.580461">📍 地址: 江北区观音桥步行街6号</div>
+                            <p>位于观音桥商圈中心，交通便利，有亲子设施</p>
+                            <p><span class="price-info">价格: 598-898元/晚</span></p>
+                        </li>
+                    </ul>
+                            </li>
+                            <li>
+                                <strong>沙坪坝区域</strong>
+                                <ul>
+                                    <li>
+                                        <strong>沙坪坝希尔顿欢朋酒店</strong>
+                                        <div class="address" data-lon="106.457062" data-lat="29.542323">📍 地址: 沙坪坝区沙坪坝站广场</div>
+                                        <p>位于沙坪坝站广场，步行可达重庆西站，设施完善</p>
+                                        <p><span class="price-info">价格: 498-698元/晚</span></p>
+                </li>
+            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-panel">
+                <button class="collapsible"><span class="tip-icon">✅</span>预订建议</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <div class="tip">
+                <ul>
+                                <li>2025年五一期间重庆住宿价格预计上浮20%-50%，<strong>建议提前预订</strong></li>
+                    <li>亲子游建议选择两居室民宿或带亲子主题的酒店房间</li>
+                    <li>行程紧凑建议优先选择靠近轻轨站的住宿，节省通勤时间</li>
+                    <li>民宿入住请提前与房东确认入住时间和具体位置，部分民宿需要自助办理入住</li>
+                    <li>酒店预订建议直接通过酒店官方渠道或可靠的OTA平台（如携程、飞猪）预订</li>
+                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="kid-travel">
+            <div class="section-title">
+                <span class="emoji">👶</span>
+                <h2>亲子游特别提醒</h2>
+            </div>
+            
+            <div class="kid-panel">
+                <button class="collapsible"><span class="kid-icon">🧸</span>亲子游特别提醒</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>行程节奏:</strong> 考虑到4岁和14岁的年龄差异，每个景点游览时间适当延长，预留休息和用餐时间。</li>
+                <li><strong>交通选择:</strong> 尽量选择地铁、出租车等便捷交通工具，减少步行距离。</li>
+                <li><strong>必备物品:</strong> 便携式儿童零食、水壶、湿纸巾、备用衣物、儿童防晒霜、帽子。</li>
+                <li><strong>应急准备:</strong> 儿童常用药品（退烧药、感冒药、创可贴）、重庆主要儿童医院地址和电话。</li>
+                            <li><strong>餐饮注意:</strong> 重庆饮食普遍较辣，为4岁孩子准备低辣或不辣的餐饮选择，14岁男孩可适量尝试。</li>
+                <li><strong>年龄差异活动:</strong> 为不同年龄的孩子准备适合的活动，14岁孩子可参与更多决策和体验。</li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert">
+            <div class="section-title">
+                <span class="emoji">✨</span>
+                <h2>行程亮点</h2>
+            </div>
+            
+            <div class="tip-panel">
+                <button class="collapsible"><span class="tip-icon">🌈</span>必游景点与体验特色</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+            <ul>
+                <li><strong>必游景点:</strong> 解放碑步行街、洪崖洞民俗风貌区、朝天门广场、十八梯传统风貌区、李子坝轻轨站、重庆大学</li>
+                <li><strong>体验特色:</strong> 山城步道探索、两江夜景欣赏、轻轨穿楼奇观、重庆特色美食品尝</li>
+                            <li><strong>亲子活动:</strong> 每个景点都安排了适合4岁和14岁孩子的特色活动或观赏点</li>
+            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-container">
+            <button class="collapsible">
+            <div class="section-title">
+                <span class="emoji">📍</span>
+                    第一天 (2025年5月1日): 抵达日
+            </div>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <div class="alert">
+                        <p><strong>今日安排:</strong> 乘坐高铁 + 抵达重庆 + 入住酒店/民宿</p>
+            </div>
+            
+                    <h3>🌅 上午</h3>
+                    <ul>
+                        <li><strong>西安北站出发</strong>
+                            <div class="transport-info">
+                                <p><strong>高铁信息:</strong> 西安北站 → 重庆西站，G223和谐号</p>
+                                <ul>
+                                    <li><strong>出发时间:</strong> 16:23</li>
+                                    <li><strong>到达时间:</strong> 22:05</li>
+                                    <li><strong>行程时间:</strong> 约5小时42分钟</li>
+                                </ul>
+                                <p><strong>出行提示:</strong></p>
+                                <ul>
+                                    <li>建议提前至少60分钟到达西安北站</li>
+                                    <li>携带充足的零食、水和娱乐物品（尤其是儿童）</li>
+                                    <li>高铁上有餐车服务，但选择有限且价格偏高</li>
+                                    <li>途中可能会经过秦岭山脉等风景区域，可提前了解</li>
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li><strong>抵达重庆后</strong>
+                    <div class="transport-panel">
+                                <button class="collapsible"><span class="trans-icon">🚕</span>从重庆西站到市区</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                        <ul>
+                                            <li><strong>地铁:</strong> 可乘坐轨道交通1号线，根据住宿地点选择合适的换乘路线</li>
+                                            <li><strong>出租车:</strong> 车站有正规出租车排队点，到解放碑/洪崖洞区域约25-30分钟，费用约40-50元</li>
+                                            <li><strong>网约车:</strong> 可使用滴滴等APP，但五一期间可能较难叫到车</li>
+                                            <li><strong>温馨提示:</strong> 考虑到携带孩子且晚上到达，建议直接乘坐出租车前往住宿地点</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                        
+                        <li><strong>酒店入住与休息</strong>
+                            <p>考虑到抵达时间较晚（22:05），建议直接前往酒店办理入住，调整休息。</p>
+                            <div class="transport-info">
+                                <p><strong>从重庆西站前往住宿地:</strong></p>
+                                <button class="collapsible"><span class="trans-icon">🚕</span>前往住宿地交通方式</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                        <ul>
+                                            <li><strong>解放碑/洪崖洞住宿:</strong> 
+                                                <ul>
+                                                    <li>轨道交通: 乘坐1号线直达（约20分钟）</li>
+                                                    <li>出租车: 约20分钟车程，车费约35元</li>
+                                </ul>
+                                            </li>
+                                            <li><strong>观音桥住宿:</strong> 
+                                                <ul>
+                                                    <li>轨道交通: 乘坐1号线至牛角沱站，换乘3号线至观音桥（约40分钟）</li>
+                                                    <li>出租车: 约30分钟车程，车费约50元</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>南坪住宿:</strong> 
+                                                <ul>
+                                                    <li>轨道交通: 乘坐1号线至小什字站，换乘环线至南坪（约30分钟）</li>
+                                                    <li>出租车: 约25分钟车程，车费约45元</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>沙坪坝住宿:</strong> 
+                                                <ul>
+                                                    <li>轨道交通: 乘坐1号线至沙坪坝站（约10分钟）</li>
+                                                    <li>出租车: 约10分钟车程，车费约20元</li>
+                                                </ul>
+                                            </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                            <div class="tip">
+                                <p><strong>晚上安排:</strong> 简单晚餐 + 早点休息，调整时差，为明天的行程养精蓄锐</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3>🧳 今日住宿</h3>
+                    <p>解放碑/观音桥/南坪区域酒店/民宿，为明天的游览做准备。</p>
+                    <div class="tip-panel">
+                        <button class="collapsible"><span class="tip-icon">🔑</span>入住提醒</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                <p><strong>入住提醒:</strong> 如预订的是民宿，请提前与房东确认入住方式，尤其是晚上到达的情况。</p>
+                                <ul>
+                                    <li>酒店一般24小时前台服务，民宿可能需要提前联系房东</li>
+                                    <li>五一期间入住人数多，建议提前办理入住手续</li>
+                                    <li>重庆部分老城区街道较窄，大型行李箱可能不便搬运</li>
+                                    <li>记得携带入住所需的证件（身份证、护照等）</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-container">
+            <button class="collapsible">
+                <div class="section-title">
+                    <span class="emoji">📍</span>
+                    第二天 (2025年5月2日): 解放碑与洪崖洞
+                </div>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <div class="alert">
+                        <p><strong>今日安排:</strong> 解放碑步行街 + 洪崖洞民俗风貌区 + 两江夜景</p>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🌅 上午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                    <ul>
+                        <li><strong>前往解放碑步行街</strong>
+                            <div class="address" data-lon="106.577293" data-lat="29.555375">📍 地址: 渝中区民权路</div>
+                            <p>解放碑位于重庆市渝中区，是重庆最繁华的商业区，夜晚灯光璀璨，商场林立，街头表演丰富。</p>
+                            
+                            <div class="tip-panel">
+                                <button class="collapsible"><span class="tip-icon">💡</span>实用小贴士</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <p><strong>解放碑夜游建议:</strong></p>
+                                        <ul>
+                                            <li>解放碑商圈晚上10点前商场都开放，可以逛街购物</li>
+                                            <li>八一路、民族路是重庆最著名的步行街，汇集了各种品牌和小吃</li>
+                                            <li>街头经常有表演和展览，适合全家一起观赏</li>
+                                            <li>商圈内轻轨站便利，可轻松返回住宿地</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    <div class="kid-panel">
+                        <button class="collapsible"><span class="kid-icon">👶</span>亲子活动推荐</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                <ul>
+                                            <li>在解放碑标志前合影留念</li>
+                                            <li>挑战找出解放碑区域的特色建筑（解放碑纪念塔、大都会广场、英利国际等）</li>
+                                            <li>在解放碑附近的大型商场游乐区（如重庆时代广场6楼）玩耍</li>
+                                            <li>品尝重庆特色小吃，如小面、酸辣粉、冰粉等</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                        </li>
+                        <li><strong>洪崖洞民俗风貌区</strong>
+                            <p>重庆知名地标，依山而建的吊脚楼建筑群，展示巴渝传统风貌。</p>
+                            <div class="transport-info">
+                                <p><strong>交通方式:</strong></p>
+                                <button class="collapsible"><span class="trans-icon">🚇</span>前往洪崖洞交通方式</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li>轨道交通: 乘坐1号线或6号线至小什字站，步行约8分钟</li>
+                                            <li>公交车: 乘坐103路、112路、122路等至较场口站下车</li>
+                                            <li>步行: 从解放碑步行约10分钟可达</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kid-friendly">
+                                <p><strong>亲子活动:</strong></p>
+                                <button class="collapsible"><span class="kid-icon">👧</span>洪崖洞亲子体验</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li>寻找吊脚楼特色建筑，了解巴渝文化</li>
+                                            <li>品尝当地小吃（推荐：麻花、陈麻花、糯米糍粑）</li>
+                                            <li>拍摄江景和山城风光照片</li>
+                                            <li>适合在11层观景台休息，欣赏两江风光</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                        </div>
+                    </div>
+
+                    <button class="collapsible"><h3>🌆 下午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                    <ul>
+                        <li><strong>解放碑步行街</strong>
+                            <p>重庆商业中心，汇聚众多国内外品牌和本地特色商店。</p>
+                            <div class="transport-info">
+                                <p><strong>交通方式:</strong></p>
+                                <button class="collapsible"><span class="trans-icon">🚇</span>前往解放碑交通方式</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                <ul>
+                                            <li>轨道交通: 乘坐1号线或6号线至小什字站或较场口站下车</li>
+                                            <li>公交车: 乘坐103路、112路、122路等至解放碑站或较场口站下车</li>
+                                </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kid-friendly">
+                                <p><strong>亲子活动:</strong></p>
+                                <button class="collapsible"><span class="kid-icon">👧</span>解放碑亲子体验</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li>参观解放碑纪念碑，了解历史</li>
+                                            <li>逛八一好吃街，品尝当地小吃</li>
+                                            <li>在大型购物中心休息和购物（推荐：重庆时代广场、英利国际）</li>
+                                            <li>带孩子参观解放碑地下防空洞（时代广场负一楼入口）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><strong>朝天门广场</strong>
+                            <p>位于长江、嘉陵江交汇处的广场，能欣赏两江交汇的壮观景象。</p>
+                            <div class="address" data-lon="106.581701" data-lat="29.529001">📍 地址: 渝中区朝天门码头</div>
+                            <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 1小时</span></p>
+                            <div class="transport-info">
+                                <p><strong>交通方式:</strong></p>
+                                <button class="collapsible"><span class="trans-icon">🚇</span>前往朝天门广场交通方式</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li>轨道交通: 乘坐1号线至小什字站，步行约15分钟</li>
+                                            <li>公交车: 乘坐103路、112路至朝天门站下车</li>
+                                            <li>步行: 从洪崖洞步行约20分钟可达</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kid-friendly">
+                                <p><strong>亲子活动:</strong></p>
+                                <button class="collapsible"><span class="kid-icon">👧</span>朝天门亲子体验</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li>观赏两江交汇景观，辨别长江与嘉陵江的颜色差异</li>
+                                            <li>在广场休息，喂食广场鸽子（可购买鸽食）</li>
+                                            <li>前往朝天门码头，了解重庆水运历史</li>
+                                            <li>适合孩子在广场自由活动，消耗体力</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li><strong>十八梯</strong>
+                            <p>重庆老城区的缩影，历史悠久的山城步道，现已重建并开放。</p>
+                            <div class="address" data-lon="106.579742" data-lat="29.558939">📍 地址: 渝中区七星岗街道</div>
+                            <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 1-1.5小时</span></p>
+                            <div class="transport-info">
+                                <p><strong>交通方式:</strong></p>
+                                <!-- 直接显示内容，不使用折叠功能 -->
+                                <div style="background-color: #e6fffb; padding: 15px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #55efc4;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <span style="background-color: #55efc4; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-right: 8px;">🚇</span>
+                                        <strong style="color: #55efc4;">前往十八梯交通方式</strong>
+                                    </div>
+                                    <ul>
+                                        <li>轨道交通: 乘坐1号线或6号线至小什字站，步行约10分钟</li>
+                                        <li>公交车: 乘坐112路、121路至七星岗站下车</li>
+                                        <li>步行: 从朝天门步行约15分钟可达</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="kid-friendly">
+                                <p><strong>亲子活动:</strong></p>
+                                <!-- 直接显示内容，不使用折叠功能 -->
+                                <div style="background-color: #e6ffff; padding: 15px; border-radius: 8px; margin-top: 10px; border-left: 4px solid #81ecec;">
+                                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                        <span style="background-color: #81ecec; color: white; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center; margin-right: 8px;">👧</span>
+                                        <strong style="color: #81ecec;">十八梯亲子体验</strong>
+                                    </div>
+                                    <ul>
+                                        <li>穿梭在老城区街巷中，体验老重庆生活</li>
+                                        <li>探索十八梯历史文化街区，寻找老照片与现实对比</li>
+                                        <li>品尝当地特色小吃（豆花、油炸糕等）</li>
+                                        <li>参观十八梯博物馆，了解区域历史变迁</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                        </div>
+                    </div>
+
+                    <button class="collapsible"><h3>🌃 晚上</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+            <div class="food-panel">
+                <button class="collapsible"><span class="food-icon">🍲</span>晚餐推荐</button>
+                <div class="collapsible-content">
+                    <div class="collapsible-inner">
+                        <h4>晚餐推荐（洪崖洞附近）:</h4>
+                        <ul>
+                            <li><strong>九街老火锅（洪崖洞店）</strong>
+                                <div class="address" data-lon="106.581959" data-lat="29.557112">📍 地址: 渝中区解放碑沧白路184号洪崖洞11楼</div>
+                                <p>正宗重庆火锅，有儿童专用锅底，位于洪崖洞内，就餐同时可欣赏美景</p>
+                                <p><span class="price-info">人均 100-120元</span></p>
+                            </li>
+                            <li><strong>德庄火锅（洪崖洞店）</strong>
+                                <div class="address" data-lon="106.582086" data-lat="29.557067">📍 地址: 渝中区沧白路洪崖洞11层</div>
+                                <p>麻辣鲜香的重庆老火锅，服务氛围好，提供九宫格锅底</p>
+                                <p><span class="price-info">人均 100-120元</span></p>
+                            </li>
+                            <li><strong>山城小汤圆（解放碑总店）</strong>
+                                <div class="address" data-lon="106.578123" data-lat="29.557214">📍 地址: 渝中区民权路26号英利国际金融中心3楼</div>
+                                <p>重庆本土特色小吃，甜品种类丰富，孩子们的最爱</p>
+                                <p><span class="price-info">人均 30-40元</span></p>
+                            </li>
+                        </ul>
+                        <div class="tip">
+                            <p><strong>亲子用餐提示：</strong></p>
+                            <ul>
+                                <li>重庆火锅偏辣，可以点微辣或鸳鸯锅，确保孩子能吃</li>
+                                <li>部分餐厅提供儿童专用餐具和座椅，可提前询问</li>
+                                <li>五一期间人流量大，建议提前半小时到餐厅，或通过APP预约</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <ul>
+                <li><strong>夜游解放碑步行街</strong>
+                    <div class="address" data-lon="106.577293" data-lat="29.555375">📍 地址: 渝中区民权路</div>
+                    <p>解放碑位于重庆市渝中区，是重庆最繁华的商业区，夜晚灯光璀璨，商场林立，街头表演丰富。</p>
+                    
+                    <div class="tip-panel">
+                        <button class="collapsible"><span class="tip-icon">💡</span>实用小贴士</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                <p><strong>解放碑夜游建议:</strong></p>
+                                <ul>
+                                    <li>解放碑商圈晚上10点前商场都开放，可以逛街购物</li>
+                                    <li>八一路、民族路是重庆最著名的步行街，汇集了各种品牌和小吃</li>
+                                    <li>街头经常有表演和展览，适合全家一起观赏</li>
+                                    <li>商圈内轻轨站便利，可轻松返回住宿地</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="kid-panel">
+                        <button class="collapsible"><span class="kid-icon">👶</span>亲子活动推荐</button>
+                        <div class="collapsible-content">
+                            <div class="collapsible-inner">
+                                <ul>
+                                    <li>在解放碑标志前合影留念</li>
+                                    <li>挑战找出解放碑区域的特色建筑（解放碑纪念塔、大都会广场、英利国际等）</li>
+                                    <li>在解放碑附近的大型商场游乐区（如重庆时代广场6楼）玩耍</li>
+                                    <li>品尝重庆特色小吃，如小面、酸辣粉、冰粉等</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="accommodation">
+                <p><strong>今日住宿:</strong> 解放碑/洪崖洞附近民宿或酒店</p>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-container">
+            <button class="collapsible">
+            <div class="section-title">
+                <span class="emoji">📍</span>
+                    第三天 (2025年5月3日): 李子坝与南滨路
+            </div>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <div class="alert">
+                        <p><strong>今日安排:</strong> 重庆宋庆龄纪念馆 + 中国三峡博物馆 + 李子坝轻轨站体验穿楼 + 朝天门广场 + 南山一棵树 + 南滨路夜景</p>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🌅 上午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>重庆宋庆龄纪念馆</strong>
+                                    <div class="address" data-lon="106.544433" data-lat="29.564385">📍 地址: 重庆市渝中区中华巷108号</div>
+                                    <p>重庆宋庆龄纪念馆是为纪念伟大的爱国主义者、中华人民共和国名誉主席宋庆龄而建立的纪念馆，展示了宋庆龄在重庆期间的生活和工作情况。</p>
+                                    <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 1小时</span></p>
+                                    
+                                    <div class="kid-friendly">
+                                        <button class="collapsible"><span class="kid-icon">🧒</span>亲子活动</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>给孩子讲解宋庆龄的生平故事，培养爱国主义情感</li>
+                                                    <li>在纪念馆内寻找与宋庆龄相关的历史照片，了解那段历史</li>
+                                                    <li>可以带上纸笔，让孩子记录下印象深刻的展品或故事</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li><strong>重庆中国三峡博物馆</strong>
+                                    <div class="address" data-lon="106.550513" data-lat="29.562014">📍 地址: 重庆市渝中区人民路236号</div>
+                                    <p>重庆中国三峡博物馆是中国规模最大的地志类博物馆之一，展示三峡地区的历史文化、自然景观和三峡工程建设成就。</p>
+                                    <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 2小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚶‍♀️</span>交通信息</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <p><strong>从宋庆龄纪念馆前往方式:</strong></p>
+                                                <ul>
+                                                    <li>步行: 约1.2公里，步行约24分钟</li>
+                                                    <li>打车: 约5分钟车程，车费约10元</li>
+                                                    <li>公交: 可乘坐181路、114路等公交车，约15分钟可到达</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="kid-friendly">
+                                        <button class="collapsible"><span class="kid-icon">🧒</span>亲子活动</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>参观三峡模型展示区，向孩子解释三峡工程的壮观和意义</li>
+                                                    <li>欣赏楚文化展品，感受巴渝文化的独特魅力</li>
+                                                    <li>寻找馆内的恐龙化石展品，激发孩子对自然科学的兴趣</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🍜 中午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="food-panel">
+                                <ul>
+                                    <li><strong>博物馆周边午餐</strong>
+                                        <p>在三峡博物馆附近有多家餐厅可供选择，适合不同口味需求。</p>
+                                        <button class="collapsible"><span class="food-icon">🍲</span>餐厅推荐</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li><strong>巴将军火锅（人民路店）</strong>
+                                                        <div class="address">📍 地址: 渝中区人民路88号百货大楼2楼</div>
+                                                        <p>特色: 正宗重庆火锅，有微辣选择，适合带孩子的家庭</p>
+                                                        <p>人均: 约80-100元/人</p>
+                                                    </li>
+                                                    <li><strong>陶然居（枇杷山店）</strong>
+                                                        <div class="address">📍 地址: 渝中区枇杷山正街105号</div>
+                                                        <p>特色: 重庆地方特色菜，环境优雅</p>
+                                                        <p>人均: 约70-90元/人</p>
+                                                    </li>
+                                                    <li><strong>李子坝站附近美食</strong>
+                                                        <p>也可以选择在前往李子坝站的路上用餐，沿途有多家小型餐馆：</p>
+                                                        <ul>
+                                                            <li><strong>九街麻辣烫（李子坝站店）</strong> - 特色麻辣烫，人均约30元</li>
+                                                            <li><strong>晓宇重庆小面</strong> - 正宗重庆小面，人均约25元</li>
+                                                            <li><strong>山城小馆</strong> - 家常菜，适合亲子用餐，人均约50元</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🌆 下午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>李子坝轻轨站体验穿楼</strong>
+                                    <div class="address" data-lon="106.537916" data-lat="29.553629">📍 地址: 重庆市渝中区李子坝正街（轨道交通2号线李子坝站）</div>
+                                    <p>李子坝轻轨站是世界上唯一一个建在居民楼中穿楼而过的轻轨站，是重庆独特的城市景观。</p>
+                                    <p><span class="price-info">轨道交通票价约3元</span> <span class="time-info">建议游览时间: 1-1.5小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>从三峡博物馆前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>公共交通: 步行至较场口站，乘坐轨道交通1号线至小什字站，换乘2号线至李子坝站，约25分钟，票价约4元</li>
+                                                    <li>打车: 约15分钟车程，费用约25元</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="kid-friendly">
+                                        <button class="collapsible"><span class="kid-icon">📸</span>穿楼体验推荐</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <p><strong>体验方式:</strong></p>
+                                                <ul>
+                                                    <li><strong>方式一:</strong> 站在李子坝站观景平台上，观看和拍摄轻轨列车从居民楼中穿过的奇特景象</li>
+                                                    <li><strong>方式二:</strong> 乘坐2号线列车，亲身体验穿楼而过的感觉（推荐从较场口方向乘坐到李子坝站）</li>
+                                                </ul>
+                                                <p><strong>摄影建议:</strong></p>
+                                                <ul>
+                                                    <li>最佳拍摄点位于李子坝正街与兴隆街交叉口处</li>
+                                                    <li>轻轨列车每隔7-10分钟一趟，拍照需耐心等待</li>
+                                                    <li>中午后光线更适合拍摄，能捕捉到列车与建筑的对比</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li><strong>朝天门广场</strong>
+                                    <div class="address" data-lon="106.582771" data-lat="29.564634">📍 地址: 重庆市渝中区朝天门码头</div>
+                                    <p>朝天门位于长江和嘉陵江交汇处，是重庆的标志性景点之一，这里可以看到两江交汇的壮观景象和周围的山城风光。</p>
+                                    <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 1小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>从李子坝站前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>公共交通: 乘坐轨道交通2号线至临江门站，步行约15分钟；或换乘1号线至小什字站，步行约10分钟</li>
+                                                    <li>打车: 约15分钟车程，费用约25元</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="kid-friendly">
+                                        <button class="collapsible"><span class="kid-icon">🧒</span>亲子活动</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>在广场上观察两江交汇处的水流方向和颜色差异</li>
+                                                    <li>登上观景台，俯瞰重庆城市风貌</li>
+                                                    <li>可以选择乘坐短途游船，从水上欣赏重庆（约30分钟，票价约60-80元/人）</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🌃 晚上</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>南山一棵树观景台</strong>
+                                    <div class="address" data-lon="106.557716" data-lat="29.525681">📍 地址: 重庆市南岸区南山风景区</div>
+                                    <p>南山一棵树观景平台是欣赏重庆全景夜景的最佳地点之一，在这里可以俯瞰重庆城区的灯火辉煌。</p>
+                                    <p><span class="price-info">门票：15元/人</span> <span class="time-info">建议游览时间: 1-1.5小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚕</span>前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>公共交通: 从朝天门乘坐公交车384路或346路到南山一棵树站，约40分钟</li>
+                                                    <li>打车: 约30分钟车程，费用约50-60元</li>
+                                                </ul>
+                                                <p><strong>提示:</strong> 考虑到孩子的体力和夜间出行安全，建议打车前往</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tip">
+                                        <p><strong>观景提示:</strong> 晚上7点后是观赏夜景的最佳时间，记得带上保暖衣物，南山山顶晚上温度较低。</p>
+                                    </div>
+                                </li>
+                                
+                                <li><strong>南滨路夜景与晚餐</strong>
+                                    <div class="address" data-lon="106.581384" data-lat="29.557211">📍 地址: 重庆市南岸区南滨路</div>
+                                    <p>南滨路是重庆滨江景观带的一部分，夜晚可以欣赏到对岸的渝中半岛灯光秀和两江交汇的美景，同时可以在此享用晚餐。</p>
+                                    <p><span class="time-info">建议游览时间: 2小时（含晚餐）</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚕</span>前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>从南山一棵树: 打车约20分钟，费用约35元</li>
+                                                    <li>公共交通: 可乘坐384路返回南滨路附近</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="food-panel">
+                                        <button class="collapsible"><span class="food-icon">🍽️</span>晚餐推荐</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li><strong>南滨印象创意餐厅</strong>
+                                                        <div class="address">📍 地址: 南岸区南滨路8号</div>
+                                                        <p>特色: 融合菜，江景餐厅，可以边用餐边欣赏夜景</p>
+                                                        <p>人均: 约100-120元/人</p>
+                                                    </li>
+                                                    <li><strong>解放碑英迪格酒店顶层餐厅</strong>
+                                                        <div class="address">📍 地址: 渝中区五四路78号</div>
+                                                        <p>特色: 高级西餐，270度全景江景视野</p>
+                                                        <p>人均: 约200-250元/人</p>
+                                                    </li>
+                                                    <li><strong>洪崖洞美食街</strong>
+                                                        <p>可以选择回到洪崖洞觅食，种类多样，价格适中，同时享受璀璨夜景</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="accommodation">
+                        <p><strong>今日住宿:</strong> 继续入住市中心酒店/民宿，便于接下来的行程</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-container" id="day4">
+            <button class="collapsible">
+            <div class="section-title">
+                <span class="emoji">📍</span>
+                    第四天 (2025年5月4日): 重庆大学和周边游览
+            </div>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <div class="alert">
+                        <p><strong>今日安排:</strong> 重庆大学 + 磁器口古镇 + 观音桥商圈</p>
+            </div>
+            
+                    <button class="collapsible"><h3>🌅 上午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>前往重庆大学</strong>
+                                    <div class="address" data-lon="106.473022" data-lat="29.565202">📍 地址: 沙坪坝区沙正街174号</div>
+                                    <p>重庆大学是中国西南地区最著名的高等学府之一，校园环境优美，建筑风格独特。</p>
+                                    <p><span class="price-info">免费开放</span> <span class="time-info">建议游览时间: 1.5-2小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>从住宿地前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                        <ul>
+                            <li><strong>解放碑/洪崖洞住宿:</strong> 
+                                <ul>
+                                                            <li>公共交通: 乘坐轨道交通1号线至沙坪坝站，步行或乘坐824路公交车至重庆大学A区（总时间约45分钟，票价约5元）</li>
+                                                            <li>打车: 约30分钟车程，车费约40元</li>
+                                </ul>
+                            </li>
+                                                    <li><strong>观音桥住宿:</strong>
+                                                        <ul>
+                                                            <li>公共交通: 乘坐轨道交通3号线至红旗河沟站，换乘1号线至沙坪坝站，步行或乘坐824路公交车至重庆大学A区（总时间约70分钟，票价约6元）</li>
+                                                            <li>打车: 约40分钟车程，车费约60元</li>
+                                                        </ul>
+                                                    </li>
+                        </ul>
+                    </div>
+                                        </div>
+                                    </div>
+                                    
+                    <div class="tip">
+                                        <p><strong>游览建议:</strong> 在校园内漫步，欣赏校园风光，了解重庆大学的历史与文化。</p>
+                    </div>
+                                </li>
+                                
+                                <li><strong>前往磁器口古镇</strong>
+                                    <div class="address" data-lon="106.441212" data-lat="29.577448">📍 地址: 沙坪坝区磁器口古镇</div>
+                                    <p>磁器口古镇是重庆著名的历史文化古镇，这里有保存完好的明清建筑和丰富的巴渝文化。</p>
+                                    <p><span class="price-info">免费参观</span> <span class="time-info">建议游览时间: 2-3小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>从重庆大学前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>公共交通: 乘坐轨道交通1号线至磁器口站，下车步行约10分钟（总时间约30分钟，票价约3元）</li>
+                                                    <li>打车: 约15分钟车程，车费约25元</li>
+                        </ul>
+                    </div>
+                                        </div>
+                                    </div>
+                                    
+                    <div class="tip">
+                                        <p><strong>游览建议:</strong> 在古镇内漫步，品尝当地小吃，购买一些纪念品。</p>
+                    </div>
+                </li>
+            </ul>
+                        </div>
+                    </div>
+
+                    <button class="collapsible"><h3>🍲 中午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="food-panel">
+                                <button class="collapsible"><span class="food-icon">🍜</span>午餐推荐（磁器口古镇）</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li><strong>陈麻花（磁器口店）</strong>
+                                                <div class="address">📍 地址: 沙坪坝区磁器口古镇正街93号</div>
+                                                <p>百年老店，重庆特色小吃，口感酥脆，香甜可口。</p>
+                                                <p><span class="price-info">人均 10-20元</span></p>
+                    </li>
+                                            <li><strong>毛血旺（磁器口店）</strong>
+                                                <div class="address">📍 地址: 沙坪坝区磁器口古镇正街105号</div>
+                                                <p>重庆特色菜品，辣度可调，味道鲜美。</p>
+                                                <p><span class="price-info">人均 30-50元</span></p>
+                    </li>
+                                            <li><strong>洪崖洞小面（磁器口店）</strong>
+                                                <div class="address">📍 地址: 沙坪坝区磁器口古镇正街76号</div>
+                                                <p>重庆特色小吃，面条劲道，辣度可调。</p>
+                                                <p><span class="price-info">人均 10-20元</span></p>
+                    </li>
+                </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+                    <button class="collapsible"><h3>🌆 下午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>前往观音桥商圈</strong>
+                                    <div class="address" data-lon="106.532271" data-lat="29.572568">📍 地址: 江北区观音桥步行街</div>
+                                    <p>观音桥商圈是重庆北部最大的商业中心，有众多购物中心、餐厅和娱乐场所。</p>
+                                    <p><span class="price-info">免费</span> <span class="time-info">建议游览时间: 2-3小时</span></p>
+                                    
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>从磁器口古镇前往方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li>公共交通: 乘坐轨道交通1号线至牛角沱站，换乘轨道交通3号线至观音桥站（总时间约60分钟，票价约6元）</li>
+                                                    <li>打车: 约35分钟车程，车费约55元</li>
+                        </ul>
+                    </div>
+                    </div>
+                    </div>
+                                    
+                    <div class="tip">
+                                        <p><strong>游览建议:</strong> 在商圈内购物、用餐，体验重庆北部现代都市生活。</p>
+                    </div>
+                </li>
+                        </ul>
+                    </div>
+                    </div>
+
+                    <button class="collapsible"><h3>🍲 晚餐</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="food-panel">
+                                <button class="collapsible"><span class="food-icon">🍜</span>晚餐推荐（观音桥商圈）</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li><strong>重庆袁老四火锅（观音桥店）</strong>
+                                                <div class="address">📍 地址: 江北区观音桥步行街</div>
+                                                <p>重庆老字号火锅，麻辣鲜香，锅底讲究。</p>
+                        <p><span class="price-info">人均 80-100元</span></p>
+                    </li>
+                                            <li><strong>德庄火锅（观音桥店）</strong>
+                                                <div class="address">📍 地址: 江北区观音桥步行街</div>
+                                                <p>重庆知名火锅品牌，可选鸳鸯锅，适合不吃辣的家庭成员。</p>
+                        <p><span class="price-info">人均 80-100元</span></p>
+                    </li>
+                                            <li><strong>好吃街（观音桥商圈）</strong>
+                                                <div class="address">📍 地址: 江北区观音桥北城天街</div>
+                                                <p>汇集各种重庆特色小吃，可根据个人喜好选择。</p>
+                                                <p><span class="price-info">人均 30-50元</span></p>
+                    </li>
+                </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+                    <button class="collapsible"><h3>🌃 晚上</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>返回观音桥住宿</strong>
+                                    <div class="transport-panel">
+                                        <button class="collapsible"><span class="trans-icon">🚇</span>返回观音桥住宿地方式</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li><strong>从磁器口回观音桥:</strong>
+                                                        <ul>
+                                                            <li>公共交通: 乘坐轨道交通1号线至牛角沱站，换乘3号线至观音桥站（约50分钟，票价约6元）</li>
+                                                            <li>打车: 约35分钟车程，费用约55元</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>返回观音桥酒店休息，为明天的返程做准备。</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+            <div class="accommodation">
+                        <p><strong>今日住宿:</strong> 观音桥酒店/民宿，位于繁华商圈，便于晚间休息和第二天出行</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第五天行程 -->
+        <div class="day-container">
+            <button class="collapsible">
+            <div class="section-title">
+                <span class="emoji">📍</span>
+                    第五天 (2025年5月5日): 返程日
+            </div>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+                    <div class="alert">
+                        <p><strong>今日安排:</strong> 上午自由活动 + 购买特产 + 中午12:58返程高铁</p>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🌅 上午</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <ul>
+                                <li><strong>观音桥商圈逛街购物</strong>
+                                    <div class="address" data-lon="106.533966" data-lat="29.575701">📍 地址: 重庆市江北区观音桥步行街</div>
+                                    <p>观音桥商圈是重庆北部最大的商业中心，有众多购物中心和特产店，可在这里购买伴手礼和纪念品。</p>
+                                    <p><span class="time-info">建议活动时间: 9:00-10:30</span></p>
+                                    
+                                    <div class="kid-friendly">
+                                        <button class="collapsible"><span class="kid-icon">🛍️</span>购物推荐</button>
+                                        <div class="collapsible-content">
+                                            <div class="collapsible-inner">
+                                                <ul>
+                                                    <li><strong>重庆特产:</strong> 老灶火锅底料、山城辣子鸡、陈麻花、重庆小面调料等</li>
+                                                    <li><strong>购物场所:</strong> 新世纪百货、阳光世纪购物中心、龙湖北城天街</li>
+                                                    <li><strong>伴手礼:</strong> 洪崖洞纪念品、磁器口手工艺品、三峡特色产品</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tip">
+                                        <p><strong>提示:</strong> 考虑到中午需要赶赴高铁站，建议上午早些出发，避免过于匆忙。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🚉 前往重庆西站</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="alert">
+                                <p><strong>重要提醒:</strong> 12:58发车的高铁，建议11:30前到达车站，留出足够时间安检和候车</p>
+                            </div>
+                            <div class="transport-panel">
+                                <button class="collapsible"><span class="trans-icon">🚇</span>从观音桥前往重庆西站交通方式</button>
+                                <div class="collapsible-content">
+                                    <div class="collapsible-inner">
+                                        <ul>
+                                            <li><strong>方案一 (推荐):</strong> 轨道交通
+                                                <ul>
+                                                    <li>路线: 从观音桥站乘坐3号线至红旗河沟站，换乘6号线至大龙山站，再换乘5号线至重庆西站</li>
+                                                    <li>时间: 约50分钟（不含步行和换乘等待时间）</li>
+                                                    <li>费用: 约8元/人</li>
+                                                    <li>优点: 不受交通拥堵影响，时间相对稳定</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>方案二:</strong> 公交车
+                                                <ul>
+                                                    <li>路线: 从观音桥步行至蚂蝗梁站，乘坐106路/135路/471路/820路等公交车至李家坪立交站，换乘473路至重庆西站</li>
+                                                    <li>时间: 约70-80分钟</li>
+                                                    <li>费用: 约5元/人</li>
+                                                    <li>缺点: 受交通状况影响大，时间不稳定</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>方案三:</strong> 出租车/网约车
+                                                <ul>
+                                                    <li>路线: 直接从观音桥酒店打车至重庆西站</li>
+                                                    <li>时间: 约45分钟（视交通状况而定）</li>
+                                                    <li>费用: 约70-90元</li>
+                                                    <li>优点: 门到门服务，行李较多时更便捷</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <p><strong>建议:</strong> 考虑到行李和舒适度，如果人数较少且行李不多，推荐乘坐轨道交通；如果行李较多或一家人出行，建议乘坐出租车直达，更加便捷舒适。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tip">
+                                <p><strong>车站信息:</strong> 重庆西站是重庆主要的高铁站之一，设施完善，站内有餐饮和便利店，可在候车时用餐或购买零食。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible"><h3>🚄 返程高铁</h3></button>
+                    <div class="collapsible-content">
+                        <div class="collapsible-inner">
+                            <div class="alert">
+                                <p><strong>车次信息:</strong> 5月5日12:58发车，预计18:30左右抵达西安</p>
+                            </div>
+                            <div class="tip">
+                                <p><strong>温馨提示:</strong></p>
+                                <ul>
+                                    <li>高铁上用餐选择有限，可提前在车站购买一些食物</li>
+                                    <li>旅途约5.5小时，可准备一些零食、水和娱乐设备</li>
+                                    <li>检查随身物品和行李，避免遗漏重要物品</li>
+                                    <li>保留好重要票据和收据，方便日后查询或报销</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert" style="background-color: #ffe6f0; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #ff6b95;">
+                        <p><strong>旅行小结:</strong> 这次重庆之行让您体验了山城特色景观、美食和文化，希望这段旅程能为您留下美好回忆！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 亲子游特别提醒 -->
+        <div class="section-container">
+            <div class="section-title">
+                <span class="emoji">⚠️</span>
+                <h2>五一亲子旅行特别提醒</h2>
+            </div>
+
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">☂️</span>
+                天气与着装建议
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>五一重庆天气特点:</strong> 5月初的重庆气温通常在18-28°C之间，早晚温差大，偶有降雨。</li>
+                <li><strong>着装建议:</strong>
+                    <ul>
+                        <li>准备轻便透气的衣物，建议选择棉质材料</li>
+                        <li>带一件薄外套或风衣，早晚和乘坐空调车时使用</li>
+                        <li>舒适防滑的运动鞋或平底鞋（重庆坡多台阶多）</li>
+                        <li>带上帽子和防晒霜（儿童防晒霜SPF30-50）</li>
+                        <li>携带雨具（轻便折叠伞或一次性雨衣）</li>
+                    </ul>
+                </li>
+                <li><strong>儿童着装特别注意:</strong>
+                    <ul>
+                        <li>多准备一套替换衣物（孩子容易出汗或被饮料弄湿）</li>
+                        <li>选择易干、吸汗的衣物材质</li>
+                        <li>避免穿凉鞋，以防台阶和山路磕碰</li>
+                    </ul>
+                </li>
+            </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">🚇</span>
+                五一交通出行提示
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>交通高峰期:</strong>
+                    <ul>
+                        <li>地铁高峰期：每天9:00-11:00和17:00-19:00，部分热门站点可能限流</li>
+                        <li>景点周边道路：每天10:00-16:00车流量大，打车较难</li>
+                        <li>车站返程：5月4日、5日全天客流量大，提前规划时间</li>
+                    </ul>
+                </li>
+                <li><strong>交通工具选择:</strong>
+                    <ul>
+                        <li><strong>优先选择:</strong> 轨道交通（准时、避堵，但五一期间车厢拥挤）</li>
+                        <li><strong>其次选择:</strong> 出租车或网约车（舒适但可能堵车，费用较高）</li>
+                        <li><strong>备选:</strong> 公交车（覆盖面广但等待时间长，五一期间拥挤）</li>
+                    </ul>
+                </li>
+                <li><strong>交通卡办理:</strong> 
+                    <ul>
+                        <li>提前在机场、火车站或任意地铁站办理"重庆畅通卡"（押金20元）</li>
+                        <li>或使用支付宝、微信扫码乘车（部分老旧车站可能不支持）</li>
+                    </ul>
+                </li>
+                <li><strong>带孩子出行特别提示:</strong>
+                    <ul>
+                        <li>轨道交通站内注意安全，看管好孩子避免拥挤</li>
+                        <li>长途出行时为孩子准备晕车药</li>
+                        <li>打车时准备儿童安全座椅或使用安全带</li>
+                        <li>在人多地方考虑使用"儿童防走失手环"或身份卡</li>
+                    </ul>
+                </li>
+            </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">🌶️</span>
+                亲子餐饮建议
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>点餐技巧:</strong>
+                    <ul>
+                        <li>重庆菜普遍较辣，点菜时明确要求"不辣"或"微辣"</li>
+                        <li>火锅店可选择"鸳鸯锅"，一边麻辣一边清淡</li>
+                        <li>询问服务员有无儿童餐或适合儿童的菜品</li>
+                    </ul>
+                </li>
+                <li><strong>适合儿童的重庆美食:</strong>
+                    <ul>
+                        <li><strong>糍粑:</strong> 软糯香甜，孩子普遍喜欢</li>
+                        <li><strong>酸辣粉(微辣或不辣版):</strong> 口感劲道，可要求不放辣椒</li>
+                        <li><strong>重庆小面(微辣):</strong> 面条筋道，可要求单独不放辣椒油</li>
+                        <li><strong>冰粉:</strong> 清凉爽口的甜品</li>
+                        <li><strong>豆花:</strong> 鲜嫩爽滑，可选甜味</li>
+                    </ul>
+                </li>
+                <li><strong>用餐高峰期避开建议:</strong>
+                    <ul>
+                        <li>午餐提前至11:30前或延后至13:30后</li>
+                        <li>晚餐提前至17:30前或延后至19:30后</li>
+                        <li>热门餐厅建议提前通过大众点评或美团预约</li>
+                    </ul>
+                </li>
+                <li><strong>饮食卫生与健康:</strong>
+                    <ul>
+                        <li>携带儿童专用餐具和消毒湿巾</li>
+                        <li>街头小吃选择客流量大的正规店铺</li>
+                        <li>准备常用肠胃药物，以防饮食不适</li>
+                        <li>多补充水分，重庆气候湿热</li>
+                    </ul>
+                </li>
+            </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">🏞️</span>
+                景点游览技巧
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>热门景点客流预警:</strong>
+                    <ul>
+                        <li><strong>洪崖洞:</strong> 五一期间日均客流可达10万人次，最拥挤时段19:00-21:00</li>
+                        <li><strong>解放碑:</strong> 全天人流密集，尤其周末和节假日</li>
+                        <li><strong>磁器口古镇:</strong> 主街道客流密集，支路相对宽松</li>
+                        <li><strong>李子坝轻轨站:</strong> 列车通过时人流集中，注意安全</li>
+                    </ul>
+                </li>
+                <li><strong>预约/购票提示:</strong>
+                    <ul>
+                        <li>以上推荐景点均不需要预约和门票（除特别标注的小景点外）</li>
+                        <li>部分热门景点如磁器口、洪崖洞在客流量过大时可能会限流</li>
+                    </ul>
+                </li>
+                <li><strong>带孩子游览技巧:</strong>
+                    <ul>
+                        <li>每天安排2-3个主要景点，中间留出充足休息时间</li>
+                        <li>准备简单零食和饮用水，避免排队购买</li>
+                        <li>寻找景点内的休息区，定时休息避免疲劳</li>
+                        <li>在人流密集区域与孩子保持密切联系，可考虑使用"亲子绳"</li>
+                        <li>在山城步道行走时握紧孩子的手，注意台阶安全</li>
+                    </ul>
+                </li>
+                <li><strong>景点内卫生间提示:</strong>
+                    <ul>
+                        <li>热门景点卫生间常有排队现象，建议提前使用</li>
+                        <li>准备便携式湿纸巾和洗手液，部分卫生间可能缺少洗手设施</li>
+                        <li>洪崖洞各楼层均有卫生间，但人多时需排队</li>
+                    </ul>
+                </li>
+            </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">🔒</span>
+                亲子游安全事项
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>紧急联系方式:</strong>
+                    <ul>                      
+                        <li><strong>重庆市旅游投诉:</strong> 023-67605155</li>
+                        <li><strong>重庆儿童医院:</strong> 023-63632191（渝中区） 023-63631913（江北区）</li>
+                    </ul>
+                </li>
+                <li><strong>防走失措施:</strong>
+                    <ul>
+                        <li>出门前为孩子拍照，记录当天穿着</li>
+                        <li>在孩子衣物内侧缝制或别上联系信息</li>
+                        <li>教孩子记住父母姓名和电话号码</li>
+                        <li>告诉孩子走失后应该怎么做（找警察或穿制服的工作人员）</li>
+                        <li>在人多景点约定固定集合地点</li>
+                    </ul>
+                </li>
+                <li><strong>儿童健康防护:</strong>
+                    <ul>
+                        <li>携带儿童常用药品：退烧药、感冒药、肠胃药、创可贴等</li>
+                        <li>防晒措施：帽子、防晒霜（每2-3小时涂抹一次）</li>
+                        <li>防蚊措施：驱蚊水或贴（尤其在江边或山间景点）</li>
+                    </ul>
+                </li>
+                <li><strong>交通安全:</strong>
+                    <ul>
+                        <li>过马路时牵好孩子，遵守交通规则</li>
+                        <li>乘坐公共交通时注意站稳扶好</li>
+                        <li>在人多地方不要让孩子奔跑，避免摔倒或与他人碰撞</li>
+                    </ul>
+                </li>
+            </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tip-panel">
+            <button class="collapsible">
+                <span class="emoji">💡</span>
+                实用建议与购物
+            </button>
+            <div class="collapsible-content">
+                <div class="collapsible-inner">
+            <ul>
+                <li><strong>行程调整:</strong>
+                    <ul>
+                        <li>行程安排保持灵活，根据天气和孩子状态随时调整</li>
+                        <li>预留"自由活动"时间，避免行程过满导致疲劳</li>
+                        <li>每天安排1-2个"必去"景点，其他作为机动调整</li>
+                    </ul>
+                </li>
+                <li><strong>亲子互动:</strong>
+                    <ul>
+                        <li>带上纸笔，鼓励孩子记录或绘画旅行见闻</li>
+                        <li>设计简单的"寻宝"游戏，增加游览乐趣</li>
+                        <li>向孩子讲述重庆的历史和文化，增强教育意义</li>
+                    </ul>
+                </li>
+                <li><strong>购物建议:</strong>
+                    <ul>
+                        <li><strong>重庆特产:</strong> 老鹰茶、陈麻花、山城辣子鸡调料、重庆泡菜</li>
+                        <li><strong>儿童纪念品:</strong> 洪崖洞微缩模型、山城步道T恤、巴渝传统玩具</li>
+                        <li><strong>购物地点:</strong> 解放碑周边商场、洪崖洞特产店、磁器口古镇</li>
+                    </ul>
+                </li>
+                <li><strong>电子设备:</strong>
+                    <ul>
+                        <li>带上充电宝（至少10000毫安）和足够的数据线</li>
+                        <li>下载离线地图和相关APP：高德地图、大众点评、携程</li>
+                        <li>为孩子准备的平板电脑预先下载好内容，备用耳机</li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>2025年重庆五一亲子游攻略</p>
+        <p>希望这份攻略能帮助您和家人度过一个愉快的假期！</p>
+        <p>❤️ 祝您旅途愉快 ❤️</p>
+        </div>
+    </div>
+
+<div class="back-to-top" id="backToTop">⬆</div>
+
+    <!-- 添加高德地图导航脚本 -->
+    <script>
+    // 添加此函数来确保所有设备上颜色一致
+    function applyConsistentStyles() {
+        // 确保标题使用渐变色
+        document.querySelectorAll('.section-title h2').forEach(title => {
+            title.style.background = "linear-gradient(135deg, #7e57c2, #5c6bc0)";
+            title.style.webkitBackgroundClip = "text";
+            title.style.webkitTextFillColor = "transparent";
+            title.style.backgroundClip = "text";
+            title.style.color = "transparent";
+            title.style.fontWeight = "bold";
+        });
+        
+        // 为特定类型标题应用专门的颜色
+        document.querySelectorAll('.transportation .section-title h2').forEach(title => {
+            title.style.background = "linear-gradient(135deg, #26a69a, #55efc4)";
+            title.style.webkitBackgroundClip = "text";
+            title.style.webkitTextFillColor = "transparent";
+        });
+        
+        document.querySelectorAll('.accommodation .section-title h2').forEach(title => {
+            title.style.background = "linear-gradient(135deg, #ec407a, #ff7675)";
+            title.style.webkitBackgroundClip = "text";
+            title.style.webkitTextFillColor = "transparent";
+        });
+        
+        document.querySelectorAll('.kid-travel .section-title h2').forEach(title => {
+            title.style.background = "linear-gradient(135deg, #81ecec, #26c6da)";
+            title.style.webkitBackgroundClip = "text";
+            title.style.webkitTextFillColor = "transparent";
+        });
+        
+        // 为三级标题应用颜色
+        document.querySelectorAll('h3').forEach(title => {
+            title.style.color = "#5c6bc0";
+            title.style.fontWeight = "bold";
+        });
+        
+        // 为四级标题应用颜色
+        document.querySelectorAll('h4').forEach(title => {
+            title.style.color = "#26a69a";
+            title.style.fontWeight = "bold";
+        });
+        
+        // 确保header背景一致
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.background = "linear-gradient(135deg, #a29bfe, #6c5ce7)";
+        }
+        
+        // 确保图标颜色一致
+        document.querySelectorAll('.food-icon').forEach(icon => {
+            icon.style.backgroundColor = "#ff9ff3";
+        });
+        
+        document.querySelectorAll('.trans-icon').forEach(icon => {
+            icon.style.backgroundColor = "#55efc4";
+        });
+        
+        document.querySelectorAll('.kid-icon').forEach(icon => {
+            icon.style.backgroundColor = "#81ecec";
+        });
+        
+        document.querySelectorAll('.tip-icon').forEach(icon => {
+            icon.style.backgroundColor = "#74b9ff";
+        });
+        
+        document.querySelectorAll('.time-icon').forEach(icon => {
+            icon.style.backgroundColor = "#a29bfe";
+        });
+        
+        // 确保overview区域样式正确
+        document.querySelectorAll('.overview').forEach(el => {
+            el.style.backgroundColor = "#e8f8f5";
+        });
+        
+        // 确保折叠面板样式正确
+        document.querySelectorAll('.collapsible').forEach(el => {
+            el.addEventListener('mouseover', function() {
+                this.style.transform = "translateY(-2px)";
+                this.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+            });
+            
+            el.addEventListener('mouseout', function() {
+                this.style.transform = "translateY(0)";
+                this.style.boxShadow = "0 2px 8px rgba(0,0,0,0.08)";
+            });
+        });
+        
+        // 确保折叠内容背景色正确
+        document.querySelectorAll('.food-panel .collapsible-inner').forEach(el => {
+            el.style.backgroundColor = "#ffeeff";
+        });
+        
+        document.querySelectorAll('.transport-panel .collapsible-inner').forEach(el => {
+            el.style.backgroundColor = "#e6fffb";
+        });
+        
+        document.querySelectorAll('.kid-panel .collapsible-inner').forEach(el => {
+            el.style.backgroundColor = "#e6ffff";
+        });
+        
+        document.querySelectorAll('.tip-panel .collapsible-inner').forEach(el => {
+            el.style.backgroundColor = "#e6f7ff";
+        });
+        
+        document.querySelectorAll('.time-panel .collapsible-inner').forEach(el => {
+            el.style.backgroundColor = "#f3f0ff";
+        });
+        
+        // 为所有折叠内容的强调文字应用颜色
+        document.querySelectorAll('.collapsible-inner li strong').forEach(el => {
+            el.style.color = "#5c6bc0";
+        });
+        
+        document.querySelectorAll('.food-panel .collapsible-inner li strong').forEach(el => {
+            el.style.color = "#ff9ff3";
+        });
+        
+        document.querySelectorAll('.transport-panel .collapsible-inner li strong').forEach(el => {
+            el.style.color = "#55efc4";
+        });
+        
+        document.querySelectorAll('.kid-panel .collapsible-inner li strong').forEach(el => {
+            el.style.color = "#81ecec";
+        });
+        
+        document.querySelectorAll('.tip-panel .collapsible-inner li strong').forEach(el => {
+            el.style.color = "#74b9ff";
+        });
+        
+        document.querySelectorAll('.time-panel .collapsible-inner li strong').forEach(el => {
+            el.style.color = "#a29bfe";
+        });
+    }
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        // 应用一致性样式
+        applyConsistentStyles();
+        
+        // 在窗口大小改变时重新应用样式
+        window.addEventListener('resize', applyConsistentStyles);
+        
+        // 修改折叠功能处理逻辑
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function(e) {
+                e.stopPropagation(); // 防止事件冒泡
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content && content.classList.contains("collapsible-content")) {
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        // 设置更大的最大高度值，确保内容完全显示
+                        content.style.maxHeight = "3000px";
+                        
+                        // 找到所有直接父元素中的collapsible-content，确保它们也展开
+                        let parent = content.parentElement;
+                        while (parent) {
+                            if (parent.classList && parent.classList.contains("collapsible-content")) {
+                                if (!parent.style.maxHeight || parent.style.maxHeight === "0px") {
+                                    parent.style.maxHeight = "3000px";
+                                }
+                            }
+                            parent = parent.parentElement;
+                        }
+                    }
+                }
+            });
+            
+            // 默认折叠所有内容
+            var content = coll[i].nextElementSibling;
+            if (content && content.classList.contains("collapsible-content")) {
+                content.style.maxHeight = null;
+            }
+        }
+        
+        // 显示回到顶部按钮
+        window.onscroll = function() {
+            var backToTop = document.querySelector('.back-to-top');
+            if (backToTop) {
+                if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }
+        };
+        
+        // 回到顶部事件处理
+        var backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
+            backToTop.addEventListener('click', function() {
+                document.body.scrollTop = 0; // Safari
+                document.documentElement.scrollTop = 0; // Chrome, Firefox, IE and Opera
+            });
+        }
+        
+        // 导航处理
+        var addressLinks = document.querySelectorAll('.address');
+        addressLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var lat = this.getAttribute('data-lat');
+                var lon = this.getAttribute('data-lon');
+                var address = this.textContent.replace('📍 地址: ', '');
+                
+                if (lat && lon) {
+                    startNaviWithCoords(address, lon, lat);
+                } else {
+                    startNaviWithAddress(address);
+                }
+            });
+        });
+        
+        // 添加页面加载完成后的渐变显示效果
+        document.body.classList.add('loaded');
+        
+        // 为所有日期和时间添加图标
+        document.querySelectorAll('.day-container .section-title h2').forEach(title => {
+            if (!title.innerHTML.includes('📅')) {
+                title.innerHTML = '📅 ' + title.innerHTML;
+            }
+        });
+        
+        // 为所有地址添加交互效果
+        document.querySelectorAll('.address').forEach(address => {
+            address.addEventListener('mouseover', function() {
+                this.style.backgroundColor = "#e6f7ff";
+                this.style.cursor = "pointer";
+            });
+            
+            address.addEventListener('mouseout', function() {
+                this.style.backgroundColor = "#f8f9fa";
+            });
+            });
+            
+            // 为价格信息添加图标
+            var priceInfos = document.querySelectorAll('.price-info');
+            priceInfos.forEach(function(priceInfo) {
+                if (priceInfo.textContent.includes('💰') === false) {
+                    priceInfo.innerHTML = '💰 ' + priceInfo.innerHTML;
+                }
+            });
+            
+            // 为时间信息添加图标
+            var timeInfos = document.querySelectorAll('.time-info');
+            timeInfos.forEach(function(timeInfo) {
+                if (timeInfo.textContent.includes('⏱️') === false) {
+                    timeInfo.innerHTML = '⏱️ ' + timeInfo.innerHTML;
+                }
+            });
+            
+            // 添加悬浮标签点击事件
+            var floatingLabel = document.querySelector('.floating-label');
+            if (floatingLabel) {
+                floatingLabel.addEventListener('click', function() {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
+        
+        // 返回顶部按钮控制
+        var backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('visible');
+                    } else {
+                    backToTopBtn.classList.remove('visible');
+                    }
+                });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
+        
+        // 添加函数在DOM加载后特别处理特定折叠面板
+        setTimeout(function() {
+            var allButtons = document.querySelectorAll('.collapsible');
+            allButtons.forEach(function(button) {
+                if (button.textContent && button.textContent.includes('前往十八梯交通方式')) {
+                    var content = button.nextElementSibling;
+                    if (content) {
+                        // 给特定的折叠内容添加特殊样式
+                        content.style.maxHeight = '1000px';
+                        content.style.transition = 'none';
+                        button.addEventListener('click', function() {
+                            if (button.classList.contains('active')) {
+                                content.style.maxHeight = '1000px';
+                                content.style.overflow = 'visible';
+                            } else {
+                                content.style.maxHeight = '0';
+                                content.style.overflow = 'hidden';
+                            }
+                        });
+                    }
+                }
+            });
+        }, 1000);
+        
+        // 特殊处理十八梯交通方式的按钮
+        var shibaTransportBtn = document.getElementById('shiba-transport');
+        var shibaTransportContent = document.getElementById('shiba-transport-content');
+        
+        if (shibaTransportBtn && shibaTransportContent) {
+            // 确保初始状态是折叠的
+            shibaTransportContent.style.maxHeight = "0";
+            shibaTransportContent.style.overflow = "hidden";
+            
+            shibaTransportBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // 切换active状态
+                this.classList.toggle("active");
+                
+                // 如果之前是隐藏的，显示它
+                if (!this.classList.contains('active')) {
+                    shibaTransportContent.style.maxHeight = "0";
+                    shibaTransportContent.style.overflow = "hidden";
+                } else {
+                    // 确保内容完全显示
+                    shibaTransportContent.style.maxHeight = "1000px";
+                    shibaTransportContent.style.overflow = "visible";
+                }
+            });
+        }
+    });
+        
+    // 页面加载完成后执行
+    // 使用高德地图导航函数
+    // 使用地址导航
+        function startNaviWithAddress(address) {
+            // 安卓设备
+            var url = 'androidamap://route?sourceApplication=重庆旅游攻略&dname=' + 
+                       encodeURIComponent(address) + '&dev=0&t=0';
+            
+            // iOS设备
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                url = 'iosamap://route?sourceApplication=重庆旅游攻略&dname=' + 
+                      encodeURIComponent(address) + '&dev=0&t=0';
+            }
+            
+            // 尝试打开APP
+            window.location.href = url;
+            
+            // 如果无法打开APP，则跳转到网页版
+            setTimeout(function() {
+                window.location.href = 'https://uri.amap.com/navigation?to=,,,' + 
+                                       encodeURIComponent(address) + '&mode=car&src=mypage&callnative=0';
+            }, 2000);
+        }
+        
+        // 使用经纬度导航
+        function startNaviWithCoords(name, lon, lat) {
+            // 安卓设备
+            var url = 'androidamap://route?sourceApplication=重庆旅游攻略&dlat=' + lat + 
+                      '&dlon=' + lon + '&dname=' + encodeURIComponent(name) + '&dev=0&t=0';
+            
+            // iOS设备
+            if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                url = 'iosamap://route?sourceApplication=重庆旅游攻略&dlat=' + lat + 
+                      '&dlon=' + lon + '&dname=' + encodeURIComponent(name) + '&dev=0&t=0';
+            }
+            
+            // 尝试打开APP
+            window.location.href = url;
+            
+            // 如果无法打开APP，则跳转到网页版
+            setTimeout(function() {
+                window.location.href = 'https://uri.amap.com/navigation?to=' + lon + ',' + lat + ',' + 
+                                       encodeURIComponent(name) + '&mode=car&src=mypage&callnative=0';
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html> 
